@@ -1,4 +1,4 @@
-function Stack(array) {
+export default function Stack(array) {
   this.array = [];
   if (array) this.array = array;
 }
@@ -8,7 +8,7 @@ Stack.prototype.getBuffer = function () {
 };
 
 Stack.prototype.isEmpty = function () {
-  this.array.length === 0;
+  return this.array.length === 0;
 };
 
 Stack.prototype.push = function (value) {
@@ -23,29 +23,29 @@ Stack.prototype.peek = function () {
   return this.array[this.array.length - 1];
 };
 
-export function stackAccessNthTopNode(stack, n) {
-  const bufferArray = stack.getBuffer();
-  if (n <= 0) throw "error";
-  const bufferStack = new Stack(bufferArray);
+// export function stackAccessNthTopNode(stack, n) {
+//   const bufferArray = stack.getBuffer();
+//   if (n <= 0) throw "error";
+//   const bufferStack = new Stack(bufferArray);
 
-  while (--n !== 0) {
-    bufferStack.pop();
-  }
-  return bufferStack.pop();
-}
+//   while (--n !== 0) {
+//     bufferStack.pop();
+//   }
+//   return bufferStack.pop();
+// }
 
-export function stackSearch(stack, element) {
-  let bufferArray = stack.getBuffer();
+// export function stackSearch(stack, element) {
+//   let bufferArray = stack.getBuffer();
 
-  let bufferStack = new Stack(bufferArray);
+//   let bufferStack = new Stack(bufferArray);
 
-  while (!bufferStack.isEmpty()) {
-    if (bufferStack.pop() == element) {
-      return true;
-    }
-  }
-  return false;
-}
+//   while (!bufferStack.isEmpty()) {
+//     if (bufferStack.pop() == element) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
 const stack1 = new Stack();
 
@@ -54,11 +54,8 @@ stack1.push(14);
 stack1.push(19);
 stack1.push(20);
 stack1.push(19);
-console.log(stack1.peek());
 
 stack1.pop();
 
-stackAccessNthTopNode(stack1, 3);
-stackSearch(stack1, 14);
-
-export default Stack;
+// stackAccessNthTopNode(stack1, 3);
+// stackSearch(stack1, 14);
