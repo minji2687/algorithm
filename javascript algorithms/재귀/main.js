@@ -4,7 +4,7 @@ function countDownToZero(n) {
   } else {
     // console.log(n);
     countDownToZero(n + 1);
-    // console.log(n);
+    console.log(n);
   }
 }
 

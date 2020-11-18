@@ -15,3 +15,17 @@ function palindrome(string) {
 }
 
 palindrome("gtrertg");
+
+function swap(input) {
+  if (typeof input === "number") {
+    return;
+  }
+  const array = input.split(" ");
+  let temp = array[0];
+  array[0] = array[1];
+  array[1] = temp;
+
+  console.log(array.join(" "));
+}
+
+// swap(input);
