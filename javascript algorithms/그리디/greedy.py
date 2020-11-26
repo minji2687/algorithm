@@ -37,7 +37,7 @@ def get_max_value(data_list, capacity):
             details.append([data[0], data[1], 1])
         else:
             fraction = capacity/data[0]
-            capacity -= data[0] * fraction
+            capacity -= data[0] * fraction  # 원래 이런코드가 들어가야 하나, 안들어가도됨
             total_value += fraction * data[1]
             details.append([data[0], data[1], fraction])
 
