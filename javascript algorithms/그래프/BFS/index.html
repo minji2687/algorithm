@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bfs/dfs</title>
     <script type="module" src="./dfs.js"></script>
+    <style>
+      body {
+        height: 1000px;
+      }
+    </style>
   </head>
 
-  <body></body>
+  <body>
+    <script>
+      const documentBody = document.querySelector("body");
+
+      function onResize() {
+        if (window.innerWidth < 500) {
+          documentBody.style.backgroundColor = "red";
+          console.log("minsize");
+        } else if (window.innerWidth < 800) {
+          documentBody.style.backgroundColor = "blue";
+          console.log("midsize");
+        } else {
+          documentBody.style.backgroundColor = "pink";
+          console.log("else");
+        }
+      }
+      window.addEventListener("resize", onResize);
+    </script>
+  </body>
 </html>
