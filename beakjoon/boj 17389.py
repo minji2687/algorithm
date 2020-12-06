@@ -15,7 +15,7 @@ print(score)
 
 # enumerate를 사용해서 for 문을 사용하면
 # index와 value를 함께 얻을수 있어서 편함.
-113
+
 for idx, ox in enumerate(S):
     if ox == 'O':
         score = idx + 1 + bonus
