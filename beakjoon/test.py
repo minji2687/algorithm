@@ -11,6 +11,3 @@ def selection_sort(data):
 
 
 print(selection_sort([5, 4, 34, 5, 23, 53, 44]))
-
-for i in range(0, 10):
-    print(i)
