@@ -6,11 +6,7 @@ def selection_sort(data):
                 lowestIdx = index
 
         data[stand], data[lowestIdx] = data[lowestIdx], data[stand]
-
     return data
 
 
 print(selection_sort([5, 4, 34, 5, 23, 53, 44]))
-
-for i in range(0, 10):
-    print(i)
