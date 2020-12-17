@@ -1,118 +1,54 @@
-# 최대값과 최소값을 빠르게 찾아야 하는 경우 사용
-# 단순 배열을 사용하면 시간이 오래 걸리는데 우선순위 큐를 사용하면
-# O(logN)으로 굉장히 시간이 단축이 될 수 있다.
-# 완전이진트리 사용 (변형된 트리 사용)
-class Heap:
-    def __init__(self, data):
-        self.heap_array = list()
-        self.heap_array.append(None)
-        self.heap_array.append(data)
+# 이진 탐색 트리 구현
 
-    def move_up(self, insert_idx):
-        if insert_idx <= 1:
-            return False
-        parent_idx = insert_idx // 2
-        if self.heap_array[insert_idx] > self.heap_array[parent_idx]:
-            return True
-        else:
-            return False
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
-    def insert(self, data):
-        if len(self.heap_array) == 0:
-            self.heap_array.append(None)
-            self.heap_array.append(data)
-        else:
-            self.heap_array.append(data)
 
-            insert_idx = len(self.heap_array)-1
+class NodeMgmt:
+    def __init__(self, head):
+        self.head = head
 
-            while self.move_up(insert_idx):
-                parent_idx = insert_idx // 2
-                self.heap_array[insert_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[insert_idx]
-                insert_idx = parent_idx
+    def insert(self, value):
+        self.current_node = self.head
+        while True:
+            if value < self.current_node.value:  # head에 Node 인스턴스가 들어올 예정이라 .value
+                if self.current_node.left != None:  # 해당브랜치를 가지고 있다면
+                    self.current_node = self.current_node.left  # 비교할 대상을 바꾸고 다시 while문
 
-    # heap 가장 큰 항목을 삭제할 때 사용하는 메서드
-    def move_down(self, popped_idx):
-        left_child_popped_idx = popped_idx * 2
-        right_child_popped_idx = popped_idx * 2 + 1
+                else:
+                    self.current_node.left = Node(value)
+                    break
 
-        # case1: 왼쪽 자식 노드도 없을 때
-        if left_child_popped_idx >= len(self.heap_array):
-            return False
+            else:
+                if self.current_node.right != None:
+                    self.current_node = self.current_node.right
 
-        # case2: 왼쪽 자식 노드만 있을 떄
-        elif right_child_popped_idx >= len(self.heap_array):
-            if self.heap_array[popped_idx] > self.heap_array[left_child_popped_idx]:
+                else:
+                    self.current_node.right = Node(value)
+                    break
+
+    def search(self, value):
+        self.current_node = self.head
+        while self.current_node:
+            if self.current_node.value == value:
                 return True
+            elif self.current_node.value > value:
+                self.current_node = self.current_node.left
             else:
-                return False
-
-        # case3: 오른쪽 자식노드도 있을 때
-        else:
-            if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]:
-                if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]:
-                    return True
-                else:
-                    return False
-            else:
-                if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]:
-                    return True
-                else:
-                    return False
-
-    # 가장 큰 항목 삭제
-
-    def pop(self):
-        if len(self.heap_array) <= 1:
-            return None
-
-        returned_data = self.heap_array[1]
-        self.heap_array[1] = self.heap_array[-1]
-        del self.heap_array[-1]
-        popped_idx = 1
-
-        while self.move_down(popped_idx):
-            left_child_popped_idx = popped_idx * 2
-            right_child_popped_idx = popped_idx * 2 + 1
-
-            # case2: 왼쪽 자식 노드만 있을 떄
-            if right_child_popped_idx >= len(self.heap_array):
-                if self.heap_array[popped_idx] > self.heap_array[left_child_popped_idx]:
-                    self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[
-                        left_child_popped_idx], self.heap_array[popped_idx]
-
-                    popped_idx = left_child_popped_idx
-
-            # case3: 오른쪽 자식노드도 있을 때
-            else:
-                if self.heap_array[left_child_popped_idx] > self.heap_array[right_child_popped_idx]:
-                    if self.heap_array[popped_idx] < self.heap_array[left_child_popped_idx]:
-                        self.heap_array[popped_idx], self.heap_array[left_child_popped_idx] = self.heap_array[
-                            left_child_popped_idx], self.heap_array[popped_idx]
-
-                        popped_idx = left_child_popped_idx
-
-                else:
-                    if self.heap_array[popped_idx] < self.heap_array[right_child_popped_idx]:
-                        self.heap_array[popped_idx], self.heap_array[right_child_popped_idx] = self.heap_array[
-                            right_child_popped_idx], self.heap_array[popped_idx]
-
-                        popped_idx = right_child_popped_idx
-
-        return returned_data
+                self.current_node = self.current_node.right
+        return False
 
 
-heap = Heap(15)
-heap.insert(10)
-heap.insert(8)
-heap.insert(5)
-heap.insert(4)
-heap.insert(20)
-heap.insert(26)
-heap.insert(40)
-heap.insert(30)
-# print(heap.pop())
-# print(heap.pop())
-# print(heap.pop())
-# print(heap.pop())
-print(heap.heap_array)
+head = Node(1)
+BST = NodeMgmt(head)
+BST.insert(2)
+BST.insert(3)
+BST.insert(6)
+BST.insert(5)
+BST.insert(0)
+
+# print(BST.head.right.value)
+print(BST.search(9))

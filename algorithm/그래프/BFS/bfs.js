@@ -14,7 +14,7 @@ graph["I"] = ["C", "J"];
 graph["J"] = ["I"];
 
 //코드가 동작을 안함.. 나중에 다시보기
-
+// 넓이 우선 탐색
 function bfs(graph, start_node) {
   let visited = [];
   let need_visit = [];

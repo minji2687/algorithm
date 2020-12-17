@@ -14,6 +14,7 @@ graph["I"] = ["C", "J"];
 graph["J"] = ["I"];
 
 // console.log(graph);
+// 깊이 우선 탐색
 function dfs(graph, start_node) {
   let visited = [];
   let need_visited = []; //bfs와 다르게 dfs는 스택이다
