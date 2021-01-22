@@ -25,7 +25,6 @@ function bfs(graph, start_node) {
     let node = need_visit.shift();
     if (!visited.includes(node)) {
       visited.push(graph[node]);
-      console.log(graph[node]);
       //   need_visit.push(...graph[node]);
     }
   }
@@ -34,4 +33,35 @@ function bfs(graph, start_node) {
 
 bfs(graph, "A");
 
-console.log("hi");
+let graph2 = [
+  [],
+  [2, 3, 8],
+  [1, 7],
+  [1, 4, 5],
+  [3, 5],
+  [3, 4],
+  [7],
+  [2, 6, 8],
+  [1, 7],
+];
+
+let visited = Array(9).fill(false);
+
+function bfs2(graph, start, visited) {
+  let queue = [];
+  queue.push(start);
+  visited[start] = true;
+
+  while (queue) {
+    let v = queue.shift();
+    console.log(v);
+    for (let i of graph[v]) {
+      if (!visited[i]) {
+        queue.push(i);
+        visited[i] = true;
+      }
+    }
+  }
+}
+
+bfs2(graph2, 1, visited);
