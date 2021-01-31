@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+
+        let numArr = arr.map((num) => {
+          let arr = num.toString().split("");
+          return arr.map((s) => parseInt(s));
+        });
+
+        let idx = 0;
+        for (let i = 0; i < numArr.length; i++) {
+          let plus = numArr[i].reduce((a, n) => {
+            return a + n;
+          }, 0);
+
+          if (plus > max) {
+            max = plus;
+            idx = i;
+            answer = arr[idx];
+          } else if (plus === max) {
+            answer = Math.max(arr[idx], arr[i]);
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [137, 460, 603, 40, 521, 129, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>

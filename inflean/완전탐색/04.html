@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+        let total = 0;
+
+        product.sort((a, b) => {
+          return a[0] - b[0];
+        });
+        let price = product.map((arr) => {
+          return arr[0] + arr[1];
+        });
+
+        let idx;
+        for (let i = 0; i < price.length; i++) {
+          if (total >= m) {
+            if (total + product[i][0] / 2 + product[i][1] <= m) {
+              idx = i;
+            } else {
+              idx = i - 1;
+            }
+          }
+          total += price[i];
+        }
+
+        return idx + 1;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>

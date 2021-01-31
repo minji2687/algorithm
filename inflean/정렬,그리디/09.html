@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(times) {
+        let answer = 0;
+        let arr = [];
+        let cnt = 0;
+        times.forEach((el) => {
+          arr.push([el[0], "s"], [el[1], "e"]);
+        });
+        arr.sort((a, b) => {
+          if (a[0] === b[0]) {
+            return a[1].charCodeAt() - b[1].charCodeAt();
+          }
+          return a[0] - b[0];
+        });
+
+        arr.forEach((el) => {
+          if (el[1] == "s") {
+            cnt++;
+          } else if (el[1] == "e") {
+            cnt--;
+          }
+          if (cnt > answer) {
+            answer = cnt;
+          }
+        });
+
+        return answer;
+      }
+
+      let arr = [
+        [14, 18],
+        [12, 15],
+        [15, 20],
+        [20, 30],
+        [5, 14],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
