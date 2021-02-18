@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, e) {
+        let ch = new Array(10001).fill(0);
+        let d = new Array(10001).fill(0);
+        let queue = [];
+        ch[s] = 1;
+        d[s] = 0;
+        queue.push(s);
+        while (queue.length) {
+          let x = queue.shift();
+          for (let nx of [x - 1, x + 1, x + 5]) {
+            if (nx === e) return d[x] + 1;
+            if (ch[nx] === 0) {
+              queue.push(nx);
+              d[nx] = d[x] + 1;
+            }
+          }
+        }
+      }
+
+      console.log(solution(8, 3));
+    </script>
+  </body>
+</html>
