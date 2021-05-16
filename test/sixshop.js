@@ -11,21 +11,21 @@
 
 // print(count)
 
-function solution(n) {
-  var answer = 0;
-  //   let boxs = [5, 3];
-  if (n % 5 === 0 || n % 3 === 0) {
-    answer += n / 5;
-    n = n % 5;
-    answer += n / 3;
-    n = n % 3;
-  } else {
-    return -1;
-  }
+// function solution(n) {
+//   var answer = 0;
+//   //   let boxs = [5, 3];
+//   if (n % 5 === 0 || n % 3 === 0) {
+//     answer += n / 5;
+//     n = n % 5;
+//     answer += n / 3;
+//     n = n % 3;
+//   } else {
+//     return -1;
+//   }
 
-  return answer;
-}
-console.log(solution(7));
+//   return answer;
+// }
+// console.log(solution(7));
 
 // Number.parseInt(5, 2);
 // console.log(Number.parseInt(12, 2));
@@ -92,24 +92,24 @@ console.log(solution(7));
 
 // 세 마리 돼지에게 공평하게 나눠 줄 방법이 존재하지 않습니다.
 
-function solution3(n) {
-  var answer = 0;
-  //   let boxs = [5, 3];
-  if (n % 5 === 0 || n % 3 === 0) {
-    while (!n == 0) {
-      if (n % 5 === 0) {
-        answer += n / 5;
-        n = n % 5;
-      } else if (n % 3 === 0) {
-        answer += n / 3;
-        n = n % 3;
-      }
-    }
-  } else {
-    return -1;
-  }
+// function solution3(n) {
+//   var answer = 0;
+//   //   let boxs = [5, 3];
+//   if (n % 5 === 0 || n % 3 === 0) {
+//     while (!n == 0) {
+//       if (n % 5 === 0) {
+//         answer += n / 5;
+//         n = n % 5;
+//       } else if (n % 3 === 0) {
+//         answer += n / 3;
+//         n = n % 3;
+//       }
+//     }
+//   } else {
+//     return -1;
+//   }
 
-  return answer;
-}
+//   return answer;
+// }
 
-console.log(solution3());
+// console.log(solution3());

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution1(a, b, c) {
+        let answer = "No";
+        let numArr = [a, b, c];
+        let maxNum = Math.max(...numArr);
+        let maxIndex = numArr.indexOf(maxNum);
+        numArr.splice(maxIndex, 1);
+        let plusNums = numArr.reduce((el, acc) => acc + el, 0);
+        if (maxNum < plusNums) answer = "Yes";
+
+        return answer;
+      }
+      function solution2(a, b, c) {
+        let answer = "yes";
+        let max;
+        let sum = a + b + c;
+        if (a > b) max = a;
+        else max = b;
+        if (max < c) max = c;
+
+        if (sum - max <= max) answer = "no";
+
+        return answer;
+      }
+
+      console.log(solution1(13, 20, 17));
+    </script>
+  </body>
+</html>

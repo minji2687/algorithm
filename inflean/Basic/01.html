@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution1(a, b, c) {
+        //정렬없이 풀어야함
+        let answer;
+        if (a < b && a > c) {
+          answer = c;
+        } else if (a > b && b < c) {
+          answer = b;
+        } else {
+          answer = c;
+        }
+        return answer;
+      }
+
+      function solution2(a, b, c) {
+        //정렬없이 풀어야함
+        let answer;
+
+        if (a > b) answer = b;
+        else answer = a;
+        if (answer > c) answer = 3;
+
+        return answer;
+      }
+
+      console.log(solution1(2, 5, 1));
+    </script>
+  </body>
+</html>
