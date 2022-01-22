@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        문제: 최근 내역 파일과 해당 순서를 찾아라
+
+        문제 설명:
+        해당 dateArr 배열에서 최근 내역 파일과 해당 파일이 있는 순서를 console에 적으시오.
+
+        예제 출력:
+        3번째 순서에 최근 작업 내역인 2021-12-27일자 파일이 있습니다.
+        */
+
+        //가장 최근 날짜를 구한다.
+
+        // const dateArr = [
+        //     "2021-12-25",
+        //     "2021-01-15",
+        //     "2021-12-27",
+        //     "2021-12-10",
+        //     "2021-12-12",
+        //     "2021-01-17",
+        //     "2021-01-12",
+        // ];
+
+        // let latestIndex = 0
+
+        // dateArr.forEach((dateItem, index) => {
+        //     if (index === 0) {
+        //         return;
+        //     }
+
+        //     let latestYear = new Date(dateArr[latestIndex]).getFullYear()
+        //     let latestMonth = new Date(dateArr[latestIndex]).getMonth() + 1
+        //     let latestDate = new Date(dateArr[latestIndex]).getDate()
+
+        //     let year = new Date(dateItem).getFullYear()
+        //     let month = new Date(dateItem).getMonth() + 1
+        //     let date = new Date(dateItem).getDate()
+
+
+
+        //     if (year > latestYear) {
+        //         latestIndex = index
+        //     }
+        //     else if (year === latestYear && month > latestMonth) {
+        //         latestIndex = index
+        //     }
+        //     else if (year === latestYear && month === latestMonth && date > latestDate) {
+        //         latestIndex = index
+        //     }
+
+        // })
+
+
+        // console.log(
+        //     `${latestIndex + 1}번째 순서에 가장 최근 작업 내역인 ${dateArr[latestIndex]}일자 파일이 있습니다`
+        // );
+
+
+        const dateArr = [
+            "2021-12-25",
+            "2021-01-15",
+            "2021-12-27",
+            "2021-12-10",
+            "2021-12-12",
+            "2021-01-17",
+            "2021-01-12",
+        ];
+
+        let latestDate = dateArr[0];
+        let latestIndex = 0;
+
+        dateArr.forEach((element, index) => {
+            // console.log(element  latestDate)
+            if (element > latestDate) {
+                latestDate = element;
+                latestIndex = index;
+            }
+        });
+
+        console.log(
+            `${latestIndex}번째 순서에 가장 최근 작업 내역인 ${latestDate}일자 파일이 있습니다`
+        );
+    </script>
+</body>
+
+</html>

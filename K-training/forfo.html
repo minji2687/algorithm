@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        문제: 최고점, 최저점을 제외한 평균 구하기(돌아와요 스걸파)
+
+        문제 설명: 
+        경연 대회에 총 8명의 심사위원이 있다.
+        총 8명의 심사위원은 한 팀에 대해 0점부터 100점까지의 점수를 줄 수 있으며,
+        특정 팀에 대한 개인감정이 있을 것을 고려하여 최고점, 최저점을 준 2팀을 제외한 6팀의 점수만을 이용하여 평균을 구하려고 한다.
+        아래 폼에 맞춰 최고점, 최저점, 평균 점수를 구하여 console에 출력하라.
+
+        예제 출력: 
+        8명의 심사위원들 중 가장 높은 점수는 100점이고, 가장 낮은 점수는 50점입니다. 이를 제외한 평균 점수는 80.833...점입니다
+        */
+
+        const scoreArr = ["80", "75", "88", "100", "67", "80", "95", "50"];
+
+        let lowScore = 0;
+        let highScore = 0;
+        let sum = 0
+
+        for (let scoreString of scoreArr) {
+            let score = parseInt(scoreString)
+            if (lowScore === 0 || score < lowScore) {
+                lowScore = score
+            } else if (score > highScore) {
+                highScore = score
+            }
+            sum += score
+        }
+
+        let average = (sum - lowScore - highScore) / (scoreArr.length - 2)
+        console.log(`8명의 심사위원들 중 가장 높은 점수는 ${highScore}점이고, 가장 낮은 점수는 ${lowScore}점입니다. 이를 제외한 평균 점수는 ${average}점입니다`);
+    </script>
+</body>
+
+</html>

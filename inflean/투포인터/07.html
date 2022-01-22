@@ -8,27 +8,28 @@
       function solution(str1, str2) {
         let answer = "YES";
         let sh = new Map();
-        for (let x of str1) {
-          if (sh.has(x)) {
-            sh.set(x, sh.get(x) + 1);
+        for (let s of str1) {
+          console.log(s);
+          if (!sh.has(s)) {
+            sh.set(s, 1);
           } else {
-            sh.set(x, 1);
+            sh.set(s, sh.get(s) + 1);
           }
         }
 
-        for (let x of str2) {
-          if (!sh.has(x) || sh.get(x) === 0) {
-            return "NO";
-          } else if (sh.has(x)) {
-            sh.set(x, sh.get(x) - 1);
+        for (let s of str2) {
+          if (!sh.has(s) || sh.get(s) === 0) {
+            answer = "No";
+          } else {
+            sh.set(s, sh.get(s) - 1);
           }
         }
 
         return answer;
       }
 
-      let a = "abaCC";
-      let b = "Caaab";
+      let a = "abaaa";
+      let b = "aaaab";
       console.log(solution(a, b));
     </script>
   </body>

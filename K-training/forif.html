@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        문제: 최빈수(mode) 구하기
+
+        문제 설명:
+        최빈수란, 자료의 값 중 가장 많이 나타난 값을 칭한다. 최빈수가 나타난 횟수와 해당 숫자가 무엇인지 출력하시오.
+        (동적인 자료를 받아온다 생각하고 sort는 사용 금지)
+
+        예제 출력:
+        최빈수는 5이고 해당 배열에 8번 출연하였다.
+
+        참고:
+        어렵다면 일단 작성해보고 구글링으로 '자바스크립트 최빈수(mode)'라고 검색해보자.
+        ES6 문법을 이용한 엘레강스한 코드를 많이 볼 수 있다.
+
+        const numbers = [
+        10, 15, 99, 8, 5, 40, 55, 97, 120, 135, 5, 10, 15, 6, 5, 10, 50, 11, 12, 80,
+        99, 1010, 101, 5, 10, 1, 80, 5, 10, 80, 5, 10, 12, 15, 40, 6, 11, 5, 1, 70,
+        77, 98, 101, 8, 5, 15,
+        ];
+
+        console.log(`최빈수는 X이고, 해당 배열에 Y번 출연하였다`);
+    </div>
+    <script>
+
+
+        const numbers = [
+            10, 15, 99, 8, 5, 40, 55, 97, 120, 135, 5, 10, 15, 6, 5, 10, 50, 11, 12, 80,
+            99, 1010, 101, 5, 10, 1, 80, 5, 10, 80, 5, 10, 12, 15, 40, 6, 11, 5, 1, 70,
+            77, 98, 101, 8, 5, 15,
+        ];
+
+        let obj = {}
+
+        for (let i = 0; i < numbers.length; i++) {
+            if (obj[numbers[i]]) {
+                obj[numbers[i]]++
+            } else {
+                obj[numbers[i]] = 1
+            }
+        }
+
+        const newObj = numbers.reduce((o, num) => {
+            o[num] ? o[num]++ : o[num] = 1
+            return o
+        }, {})
+
+        // console.log("newObj", newObj)
+
+        // console.log("numbers", numbers)
+
+        // const plus = numbers.reduce((num, i) => {
+        //     return num + i
+        // }, 0)
+
+        // console.log("plus", plus)
+
+
+        // let maxValue = 0;
+        // let maxKey = 0;
+
+        // for (let key in obj) {
+        //     let value = obj[key]
+        //     if (value > maxValue) {
+        //         maxValue = value
+        //         maxKey = key
+        //     }
+        // }
+
+        // console.log(`최빈수는 ${maxKey}이고, 해당 배열에 ${maxValue}번 출연하였다`);
+
+
+
+    </script>
+</body>
+
+</html>

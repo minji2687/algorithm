@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        문제: CPU를 오래 쓰고 싶은 개발자 L씨를 도와주자(while문과 break문의 사용)
+
+        문제 설명:
+        개발자 L씨는 컴퓨터 부품광이다.이번에 큰 맘을 먹고 비싼 CPU를 구매하였는데 이를 오래 쓰고 싶어한다.
+        CPU의 적정 온도는 40도~60도이며, 개발 같은 고성능 작업을 할 때는 70~80도까지 온도가 올라간다.
+        개발자 L씨는 CPU 온도가 88도 이상으로 과열되면 사용자에게 알려주는 프로그램을 필요로 한다.
+        개발자 L씨를 대신하여 이 프로그램을 짜보자.
+
+        예제 출력:
+        컴퓨터 온도가 92도입니다.잠시 작업을 쉬어주십시오. //(사용자가 해당 내용을 보고 바로 작업을 중단했다 가정하고, 이후 출력문은 없게 처리해보자)
+
+        추가 미션(여유가 된다면 or 이게 이해가 더 쉽다면 이걸로 진행 부탁 드립니당...!):
+        cpuTemp 배열이 아닌 실제 CPU 온도를 받는 것처럼 무한 while을 통하여
+        실제 CPU처럼 40~100까지의 숫자를 랜덤으로 받게 하여 88도가 넘을 때 알려주는 프로그램을 짜보자.
+
+
+        const cpuTemp = [45, 75, 80, 55, 65, 80, 65, 85, 87, 80, 92, 100, 80, 90, 60];
+    </div>
+    <script>
+
+        const cpuTemp = [45, 75, 80, 55, 65, 80, 65, 85, 87, 80, 92, 100, 80, 90, 60];
+
+        let i = 0;
+
+        // while (cpuTemp[i]) {
+        //     if (cpuTemp[i] >= 92) {
+        //         console.log(`컴퓨터 온도가${cpuTemp[i]} 입니다. 작업을 쉬어주십시오`)
+        //         break;
+        //     }
+        //     i++;
+        // }
+
+
+
+
+        // console.log(Math.floor(Math.random() * (100 - 40) + 40))
+
+        function randomNum() {
+            return Math.floor(Math.random() * (100 - 40) + 40)
+        }
+
+        do {
+            var num = randomNum()
+            console.log(num)
+            if (num >= 92) {
+                console.log(`컴퓨터 온도가${num} 입니다. 작업을 쉬어주십시오`)
+
+            }
+        } while (num < 92)
+
+        // while (true) {
+        //     let num = Math.random() * (100 - 60) + 60; //Math.random() * (max - min) + min;
+        //     if (num >= 88) {
+        //         console.log(`컴퓨터 온도가 ${num}도 입니다. 잠시 작업을 쉬어주십시오`);
+        //         break;
+        //     }
+        // }
+
+
+        // while (condition)
+        //     statement
+        // 조건문이 참이면 while문 안의 문장이 실행되고,
+        // 거짓이면, 그 문장은 while 반복문 후로 넘어간다.
+
+        // var n = 0;
+        // var x = 0;
+
+        // while (n < 3) {
+        //     n++;
+        //     x += n;
+        //     console.log("n", n)
+        // }
+
+
+
+
+    </script>
+</body>
+
+</html>
