@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>문제</h3>
+        <p>
+            오성은 새해를 맞아 운동을 하기로 했습니다. 매일 계단 오르내리기로 200kcal씩 운동하기로 했을 때,<br />
+            40칸 짜리 계단을 최소 몇 번 왕복해야 할까요?
+            그리고 200kcal 열량을 소모한 시점에 계단을 오르고 있는 중일까요? 아니면 내려가고 있는 중일까요?
+
+            - 계단을 한 칸 이동할 때 0.15kcal이 소모됩니다.
+            - 계단을 오르면서 운동을 시작합니다.
+            - 계단을 왕복하여 시작점으로 돌아오는 것을 것을 1세트로 취급합니다.
+            이미 시작한 세트는 도중에 멈추지 않습니다.
+
+            // "n만큼 왕복해야 함"
+            // "오는 중" or "내려가는 중"
+        </p>
+        <script>
+            const maxCalory = 200;
+            const StairsNum = 40;
+            const oneStaireCalory = 0.15;
+            let doing = "up"; //down
+            let startCalory = 0
+            let doingStaire = 0
+            let turnNum = 0
+
+            while (startCalory < maxCalory) {
+                doingStaire++ // 계단 +1
+                startCalory += oneStaireCalory //칼로리 + 0.15
+
+                //계단이 40이상이면 내려오는것 올라가는것 바꿈
+                if (doingStaire % StairsNum === 0) {
+                    doing = doing === "up" ? "down" : "up"
+                }
+
+                // turnNum ++ // 계단 80개 오른뒤에 왕복숫자 올리기
+                if (doingStaire % (StairsNum * 2) === 0) {
+                    console.log(doingStaire);
+                    turnNum++
+                    console.log(turnNum);
+                }
+                // console.log(startCalory);
+            }
+
+            console.log(turnNum, doing, doingStaire)
+
+            const kcal = 200
+            const stairs = Math.ceil(kcal / 0.15)
+            const set = Math.ceil(stairs / 80)
+            const stateUpstairs = (Math.floor(stairs / 40) % 2 === 0 ? "오르는 중" : "내려가는 중")
+            // 40칸 기준으로 오름/내림 상태가 변환되므로
+            // 계단 수를 40으로 나누고 내림하면 홀수/짝수로 구분이 가능합니다.
+
+            console.log(`계단수는 ${stairs}`)
+            console.log(`왕복수는 ${set}`)
+            console.log(`200kcal 소모 시점에 계단을 ${stateUpstairs}`)
+
+        </script>
+
+    </div>
+</body>
+
+</html>
