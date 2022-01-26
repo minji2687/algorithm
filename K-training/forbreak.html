@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./main.js"></script>
+</head>
+
+<body>
+    <pre>
+            문제: 
+            소수 판별
+
+            문제 설명:
+            예제 입력인 input.txt를 받아 해당 입력값들이 소수인지 판별해보자.
+            * for문과 break문을 활용하여 최대한 효율적으로 작성해보자.
+
+            예제 입력:
+            1
+            2
+            3
+            4
+            5
+            6
+            10
+            23
+            100
+            101
+
+            예제 출력:
+            1은 소수가 아니다.
+            2은 소수다.
+            3은 소수다.
+            4은 소수가 아니다.
+            5은 소수다.
+            6은 소수가 아니다.
+            10은 소수가 아니다.
+            23은 소수다.
+            100은 소수가 아니다.
+            101은 소수다.
+    </pre>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 10, 23, 100, 101]
+        const prime = [2, 3, 5, 7]
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] === 1) {
+                //1은 소수가 아니다
+                console.log(`${arr[i]}는 소수가 아니다.`);
+            }
+
+            for (let j = 0; j < prime.length; j++) {
+                if (arr[i] === prime[j]) {
+                    //소수다.
+                    console.log(`${arr[i]}는 소수다.`);
+                    break;
+                }
+                if (arr[i] % prime[j] === 0) {
+                    //나머지가 0이면 소수가 아니다.
+                    console.log(`${arr[i]}는 소수가 아니다`);
+                    break;
+                } else {
+                    console.log(`${arr[i]}는 소수다.`);
+                    break;
+
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

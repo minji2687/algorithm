@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        문제: 
+        별찍기
+
+        문제 설명:
+        에제 출력에 맞게 이중 for문을 이용하여 별을 찍자.
+
+        예제 출력: (사선 모양의 높이가 5인 별이다)
+
+        *
+         *
+          *
+           *
+            *
+    </pre>
+    <script>
+        for (let i = 1; i < 6; i++) {
+            let str = '';
+            for (let j = 0; j <= i; j++) {
+                str += " ";
+                if (j === i) {
+                    str += "*"
+                }
+            }
+            console.log(str)
+        }
+    </script>
+</body>
+
+</html>
