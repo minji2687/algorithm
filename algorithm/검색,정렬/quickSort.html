@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // quickSort
+        // 처음 피벗은 첫번째 숫자이다.
+        // 첫번째 숫자 다음숫자부터 피벗보다 큰 수를 찾는다
+        // 끝에서 피벗보다 작은숫자를 찾는다.
+        // 두 숫자의 위치를 변경한다.
+        // 왼쪽과 오른쪽의 위치가 엇갈리는 경우, 피벗과 작은데이터의 위치를 변경한다.
+
+
+        function quickSort(arr, start, end) {
+            if (start >= end) return //원소가 한개인 경우 리턴
+            let pivot = start;
+            let left = start + 1;
+            let right = end;
+
+            while (left <= right) {
+                while (left <= end && arr[left] <= arr[pivot]) left++;
+                while (right > start && arr[right] > arr[pivot]) right--;
+                if (left > right) [arr[right], arr[pivot] = arr[pivot], arr[right]]
+                else[arr[left], arr[right] = arr[right], arr[left]]
+            }
+            quickSort(arr, start, right - 1)
+            quickSort(arr, right + 1, end)
+
+
+        }
+        const arr = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+        quickSort(arr, 0, arr.length - 1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let dateStringYear = dateString.split("-")[0];
+        // let dateStringMonth = dateString.split("-")[1];
+        // let dateStringDate = dateString.split("-")[2];
+
+        // dateStringMonth =
+        //     dateStringMonth[0] === "0"
+        //         ? parseInt(dateStringMonth[1])
+        //         : parseInt(dateStringMonth);
+
+        // let nowYear = new Date(Date.now()).getFullYear();
+        // let nowMonth = new Date(Date.now()).getMonth() + 1;
+        // let nowDate = new Date(Date.now()).getDate();
+
+        // const now = `${nowYear}-${nowMonth}-${nowDate}`;
+        // let dateStringData = `${dateStringYear}-${dateStringMonth}-${dateStringDate}`;
+
+        // if (now === dateStringData) {
+        //     return "오늘";
+        // } else if (nowYear === dateStringYear && nowMonth - dateStringMonth === 1) {
+        //     return "어제";
+        // } else if (nowYear === dateStringYear && nowMonth - dateStringMonth === 2) {
+        //     return "이틀전";
+        // } else {
+        //     return dateStringData;
+        // }
+        function convertDateForm(timeStamp) {
+            let nowYear = new Date(Date.now()).getFullYear();
+            let nowMonth = new Date(Date.now()).getMonth() + 1;
+            let nowDate = new Date(Date.now()).getDate();
+            let nowHours = new Date(Date.now()).getHours();
+            let nowMinutes = new Date(Date.now()).getMinutes();
+            let nowSeconds = new Date(Date.now()).getSeconds();
+
+            const date = new Date(timeStamp)
+
+            let itemYear = date.getFullYear()
+            let itemMonth = date.getMonth() + 1
+            let itemDate = date.getDate()
+            let itemHours = date.getHours()
+            let itemMinutes = date.getMinutes()
+            let itemSeconds = date.getSeconds()
+
+            if (nowYear > itemYear) {
+                return `${nowYear - itemYear}년 전`
+            } else if (nowMonth > itemMonth) {
+                return `${nowMonth - itemMonth}월 전`
+            } else if (nowMonth > itemMonth) {
+                return `${nowMonth - itemMonth}월 전`
+            } else if (nowDate > itemDate) {
+                return `${nowDate - itemDate}일 전`
+            } else if (nowHours > itemHours) {
+                return `${nowHours - itemHours}시간 전`
+            } else if (nowMinutes > itemMinutes) {
+                return `${nowMinutes - itemMinutes}분 전`
+            } else if (nowSeconds > itemSeconds) {
+                return `${nowSeconds - itemSeconds}초 전`
+            }
+        }
+
+        console.log(convertDateForm(1644558498))
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let arr = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2];
+
+        let maxValue = arr.reduce((a, b) => Math.max(a, b))
+        let cnt = new Array(maxValue + 1).fill(0)
+
+        for (let i = 0; i < arr.length; i++) {
+            cnt[arr[i]]++;
+        }
+
+        let answer = ''
+
+        for (let i = 0; i < cnt.length; i++) {
+            for (let j = 0; j < cnt[i]; j++) {
+                answer += i + '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
